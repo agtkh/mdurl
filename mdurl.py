@@ -26,12 +26,9 @@ def get_title(url):
     """
     URLからタイトルを取得する
     """
-    try:
-        html = urllib.request.urlopen(url)
-        soup = BeautifulSoup(html, "html.parser")
-        return soup.title.string
-    except (urllib.error.URLError, ValueError):
-        return url
+    html = urllib.request.urlopen(url)
+    soup = BeautifulSoup(html, "html.parser")
+    return soup.title.string
 
 
 def get_md_url(url):
